@@ -580,7 +580,7 @@ MonoBehaviour:
   OnConfidenceChanged:
     m_PersistentCalls:
       m_Calls: []
-  _classId: 0
+  _classId: 4
   _target: {fileID: 0}
   _focusActivationTime: 0
   _rotate: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
   OnConfidenceChanged:
     m_PersistentCalls:
       m_Calls: []
-  _classId: 0
+  _classId: 1
   _target: {fileID: 0}
   _focusActivationTime: 0
   _rotate: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
   OnConfidenceChanged:
     m_PersistentCalls:
       m_Calls: []
-  _classId: 0
+  _classId: 3
   _target: {fileID: 0}
   _focusActivationTime: 0
   _rotate: 0
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   OnConfidenceChanged:
     m_PersistentCalls:
       m_Calls: []
-  _classId: 0
+  _classId: 2
   _target: {fileID: 0}
   _focusActivationTime: 0
   _rotate: 0
