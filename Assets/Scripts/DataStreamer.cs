@@ -9,14 +9,18 @@ using MathNet.Numerics;
 public class DataStreamer : MonoBehaviour
 {
     public int _classId;
-    
+
     [SerializeField]
     private int _sampleRate = 250;
 
     [SerializeField]
     private int _numChannels = 8;
 
-    private int bufferLegth = 0;
+    [SerializeField]
+    private int _slidingWindow = 100;
+
+    private int bufferLength = 0;
+    private int slidingWindowBuffer = 0;
     public bool logData = false;
     float[,] eegData; // 8 channels, 1000 samples
     // Define frequency bands
@@ -57,7 +61,7 @@ public class DataStreamer : MonoBehaviour
         //create filename based on timestamp
         filename = "power_bands_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
         // Write header to CSV file
-        if(logData)
+        if (logData)
             LogToCSV(filename, "Alpha Power, Beta Power, Alpha/Beta Ratio");
     }
 
@@ -70,20 +74,45 @@ public class DataStreamer : MonoBehaviour
     public void DataCallback(float[,] data)
     {
 
-        if (bufferLegth == 250)
+        if (bufferLength == 250 && slidingWindowBuffer == _slidingWindow)
         {
             AnalyzeEEG(eegData);
-            if(logData)
+            if (logData)
                 LogToCSV(filename, eegData.ToString());
-            bufferLegth = 0;
+        }
+        if (bufferLength < _sampleRate)
+        {
+            // push sample into eegData
+            for (int i = 0; i < _numChannels; i++)
+            {
+                eegData[bufferLength, i] = data[0, i];
+            }
+            bufferLength++;
+        } else
+        {
+            // shift the data
+            for (int i = 0; i < _sampleRate - 1; i++)
+            {
+                for (int j = 0; j < _numChannels; j++)
+                {
+                    eegData[i, j] = eegData[i + 1, j];
+                }
+            }
+            // push sample into eegData
+            for (int i = 0; i < _numChannels; i++)
+            {
+                eegData[_sampleRate - 1, i] = data[0, i];
+            }
+        }
+        if (slidingWindowBuffer < _slidingWindow)
+        {
+            slidingWindowBuffer++;
+        }
+        else
+        {
+            slidingWindowBuffer = 0;
         }
 
-        // push sample into eegData
-        for (int i = 0; i < 8; i++)
-        {
-            eegData[bufferLegth, i] = data[0, i];
-        }
-        bufferLegth++;
     }
 
 
@@ -107,7 +136,7 @@ public class DataStreamer : MonoBehaviour
             Complex32[] fft = channelData.Apply(x => new Complex32(x, 0));
 
             // Compute fft
-            Fourier.Forward(fft);  
+            Fourier.Forward(fft);
 
             // Calculate Power Spectral Density (PSD)
             double[] psd = fft.Apply(x => x.MagnitudeSquared());
@@ -119,7 +148,7 @@ public class DataStreamer : MonoBehaviour
             Fourier.Inverse(fft);
 
             // Round the values to two decimal places
-            alphaPower =  Math.Round(alphaPower, 2);
+            alphaPower = Math.Round(alphaPower, 2);
             betaPower = Math.Round(betaPower, 2);
 
             // Calculate Alpha/Beta ratio
@@ -136,12 +165,14 @@ public class DataStreamer : MonoBehaviour
             alphaPowers[i] = (float)alphaPower;
             betaPowers[i] = (float)betaPower;
             alphaBetaRatios[i] = (float)alphaBetaRatio;
-            
 
-            Debug.Log($"Channel {i + 1}: Alpha Power = {alphaPower}, Beta Power = {betaPower}");
+            
+            //Debug.Log($"Channel {i + 1}: Alpha Power = {alphaPower}, Beta Power = {betaPower}");
         }
+        
         averageAlphaPower = Mean(alphaPowers);
         averageBetaPower = Mean(betaPowers);
+        Debug.Log("Alpha Power: " + averageAlphaPower + " Beta Power: " + averageBetaPower + " Alpha/Beta Ratio: " + Mean(alphaBetaRatios));
     }
 
     private float Mean(float[] values)

@@ -331,6 +331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _classId: 0
+  _sampleRate: 250
+  _numChannels: 8
+  _slidingWindow: 100
   logData: 0
 --- !u!4 &61984054
 Transform:
@@ -395,6 +398,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _classId: 0
+  _sampleRate: 250
+  _numChannels: 8
+  _slidingWindow: 100
   logData: 0
 --- !u!4 &124446882
 Transform:
@@ -459,6 +465,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _classId: 0
+  _sampleRate: 250
+  _numChannels: 8
+  _slidingWindow: 100
   logData: 0
 --- !u!4 &336834428
 Transform:
@@ -1101,7 +1110,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1250,7 +1259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8128707533913871463, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: Device
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8128707533913871463, guid: 7067da54ff85a2341b5db82d8a1f7736, type: 3}
       propertyPath: _dataAvailable.m_PersistentCalls.m_Calls.Array.size
@@ -1743,6 +1752,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _classId: 0
+  _sampleRate: 250
+  _numChannels: 8
+  _slidingWindow: 50
   logData: 0
 --- !u!4 &1035025129
 Transform:
@@ -3142,8 +3154,8 @@ MonoBehaviour:
   _materialIndex: 0
   stateOnOff: 0
   oscReceivers: {fileID: 793701730}
-  textOn: {fileID: 0}
-  textOff: {fileID: 0}
+  textOn: {fileID: 1795445985}
+  textOff: {fileID: 780124848}
 --- !u!136 &1730638468
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3308,7 +3320,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
