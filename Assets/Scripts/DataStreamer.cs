@@ -5,14 +5,20 @@ using System;
 using Accord.Math;
 using MathNet.Numerics.IntegralTransforms;
 using MathNet.Numerics;
-using Accord.Statistics.Kernels;
 
 public class DataStreamer : MonoBehaviour
 {
     public int _classId;
+    
+    [SerializeField]
+    private int _sampleRate = 250;
+
+    [SerializeField]
+    private int _numChannels = 8;
+
     private int bufferLegth = 0;
     public bool logData = false;
-    float[,] eegData = new float[250, 8]; // 8 channels, 1000 samples
+    float[,] eegData; // 8 channels, 1000 samples
     // Define frequency bands
     private const double AlphaMin = 8.0; // Hz
     private const double AlphaMax = 13.0; // Hz
@@ -47,6 +53,7 @@ public class DataStreamer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eegData = new float[_sampleRate, _numChannels];
         //create filename based on timestamp
         filename = "power_bands_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
         // Write header to CSV file
@@ -100,7 +107,7 @@ public class DataStreamer : MonoBehaviour
             Complex32[] fft = channelData.Apply(x => new Complex32(x, 0));
 
             // Compute fft
-            Fourier.Forward(fft);
+            Fourier.Forward(fft);  
 
             // Calculate Power Spectral Density (PSD)
             double[] psd = fft.Apply(x => x.MagnitudeSquared());
@@ -108,6 +115,8 @@ public class DataStreamer : MonoBehaviour
             // Sum PSD within frequency bands
             double alphaPower = SumPSDWithinFrequencyRange(psd, AlphaMin, AlphaMax);
             double betaPower = SumPSDWithinFrequencyRange(psd, BetaMin, BetaMax);
+            // Compute inverse fft
+            Fourier.Inverse(fft);
 
             // Round the values to two decimal places
             alphaPower =  Math.Round(alphaPower, 2);

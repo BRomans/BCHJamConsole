@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PanelModelingDevis.unity
     guid: d01ced2431bdf56409d05f45035794df
+  - enabled: 1
+    path: Assets/Scenes/DefinitiveConsolle.unity
+    guid: 040ab2ca7b9b6f74cb62e4a69e92983e
   m_configObjects: {}
