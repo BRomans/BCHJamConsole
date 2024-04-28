@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 61984054}
   - component: {fileID: 61984053}
   - component: {fileID: 61984052}
+  - component: {fileID: 61984055}
   m_Layer: 0
   m_Name: OSCSender_3
   m_TagString: Untagged
@@ -350,6 +351,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793701731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61984055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61984051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: 5a87f0ddd32d8e44e915025295870c6e, type: 2}
+  _oscAddress: /bci_trig_3
+  _dataSource: {fileID: 61984053}
+  _propertyName: ClassId
+  _keepSending: 0
 --- !u!1 &124446879
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +379,7 @@ GameObject:
   - component: {fileID: 124446882}
   - component: {fileID: 124446881}
   - component: {fileID: 124446880}
+  - component: {fileID: 124446883}
   m_Layer: 0
   m_Name: OSCSender_2
   m_TagString: Untagged
@@ -417,6 +436,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793701731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124446883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124446879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: 5a87f0ddd32d8e44e915025295870c6e, type: 2}
+  _oscAddress: /bci_trig_2
+  _dataSource: {fileID: 124446881}
+  _propertyName: ClassId
+  _keepSending: 0
 --- !u!1 &234753469
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +497,7 @@ GameObject:
   - component: {fileID: 336834428}
   - component: {fileID: 336834427}
   - component: {fileID: 336834426}
+  - component: {fileID: 336834429}
   m_Layer: 0
   m_Name: OSCSender_1
   m_TagString: Untagged
@@ -517,6 +554,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793701731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336834429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336834425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: 5a87f0ddd32d8e44e915025295870c6e, type: 2}
+  _oscAddress: /bci_trig_1
+  _dataSource: {fileID: 336834427}
+  _propertyName: ClassId
+  _keepSending: 0
 --- !u!1001 &352806322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1729,6 +1783,8 @@ GameObject:
   - component: {fileID: 1035025128}
   - component: {fileID: 1035025127}
   - component: {fileID: 1035025126}
+  - component: {fileID: 1035025131}
+  - component: {fileID: 1035025130}
   m_Layer: 0
   m_Name: OSCSender_Passive
   m_TagString: Untagged
@@ -1748,7 +1804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _connection: {fileID: 11400000, guid: a065cea7fb2955745a0efa816a598faa, type: 2}
+  _connection: {fileID: 11400000, guid: 7416eb7da2abf4c4d8ab80ea5792fe35, type: 2}
   _oscAddress: /bci_beta
   _dataSource: {fileID: 1035025128}
   _propertyName: AverageBetaPower
@@ -1765,7 +1821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _connection: {fileID: 11400000, guid: a065cea7fb2955745a0efa816a598faa, type: 2}
+  _connection: {fileID: 11400000, guid: e37c69a4c05fd5a4e95aadbe687c3236, type: 2}
   _oscAddress: /bci_alpha
   _dataSource: {fileID: 1035025128}
   _propertyName: AverageAlphaPower
@@ -1802,6 +1858,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 234753470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035025130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035025125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: 5a87f0ddd32d8e44e915025295870c6e, type: 2}
+  _oscAddress: /bci_beta
+  _dataSource: {fileID: 1035025128}
+  _propertyName: AverageBetaPower
+  _keepSending: 0
+--- !u!114 &1035025131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035025125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: 5a87f0ddd32d8e44e915025295870c6e, type: 2}
+  _oscAddress: /bci_alpha
+  _dataSource: {fileID: 1035025128}
+  _propertyName: AverageAlphaPower
+  _keepSending: 0
 --- !u!1001 &1054839817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2862,6 +2952,7 @@ GameObject:
   - component: {fileID: 1348387475}
   - component: {fileID: 1348387476}
   - component: {fileID: 1348387477}
+  - component: {fileID: 1348387478}
   m_Layer: 0
   m_Name: OSCSenderIntensity
   m_TagString: Untagged
@@ -2915,6 +3006,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _connection: {fileID: 11400000, guid: a065cea7fb2955745a0efa816a598faa, type: 2}
+  _oscAddress: /bci_slid
+  _dataSource: {fileID: 1348387476}
+  _propertyName: IncreaseModifier
+  _keepSending: 0
+--- !u!114 &1348387478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348387474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: 5a87f0ddd32d8e44e915025295870c6e, type: 2}
   _oscAddress: /bci_slid
   _dataSource: {fileID: 1348387476}
   _propertyName: IncreaseModifier
