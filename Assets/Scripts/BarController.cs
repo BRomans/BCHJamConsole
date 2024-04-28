@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BarController : MonoBehaviour
 {
-    public float IncreaseModifier { get => increaseModifier; set => increaseModifier = value; }
+    public float CurrentPower { get => currentPower/100; }
     [SerializeField] private UnityEngine.UI.Image powerBar;
     [SerializeField] private float currentPower, maxPower;
     [SerializeField] private float increaseModifier, decreaseModifier;
