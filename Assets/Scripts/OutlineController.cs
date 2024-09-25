@@ -26,7 +26,7 @@ public class OutlineController : MonoBehaviour
     public void ActivateOutline([SerializeField] int classId)
     {
         classId -= 1;
-        // no time for this, 4 is the numbers of buttons we have
+        // no time for this, 4 is the numbers of buttons we hav
         if (classId < 4)
         {
             for (int i = 0; i < 3; i++)
