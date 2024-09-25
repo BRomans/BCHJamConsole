@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/PanelModelingDevis.unity
+    path: Assets/Scenes/Old/PanelModelingDevis.unity
     guid: d01ced2431bdf56409d05f45035794df
   - enabled: 1
     path: Assets/Scenes/DefinitiveConsolle.unity
